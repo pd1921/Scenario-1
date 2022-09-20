@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+    <head>
+        <!-- meta charset -->
+        <meta charset="utf-8">
+        <!-- meta description -->
+        <meta name="description" content="">
+        <!-- site title-->
+        <title><%= title %></title>
+        <!-- mobile viwport meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- fevicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+        
+        <!-- ================================
+        CSS Files
+        ================================= -->
+        <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i|Open+Sans:400,600,700,800" rel="stylesheet">
+        <link rel="stylesheet" href="css/themefisher-fonts.min.css">
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link id="color-changer" rel="stylesheet" href="css/colors/color-0.css">
+    </head>
+
+    <body style="background-image: url('img/scenario1_bg.png'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
+
+        <div class="preloader">
+            <div class="loading-mask"></div>
+            <div class="loading-mask"></div>
+            <div class="loading-mask"></div>
+            <div class="loading-mask"></div>
+            <div class="loading-mask"></div>
+        </div>
+
+        <div class="preview-wrapper">
+            <div class="switcher-head">
+                <span>Style Switcher</span>
+                <div class="switcher-trigger tf-tools"></div>
+            </div>
+
+            <div class="switcher-body">
+                <h4>Choose Color:</h4>
+                <ul class="color-options list-none">
+                    <li class="c0" data-color="red" title="Default">Default</li>
+                    <li class="c1" data-color="blue" title="Red">Red</li>
+                    <li class="c2" data-color="green" title="Green">Green</li>
+                    <li class="c3" data-color="yellow" title="Blue">Blue</li>
+                </ul>
+            </div>
+        </div>
+
+        <main class="site-wrapper">
+            <div class="pt-table" >
+                <div class="pt-tablecell page-welcome relative" >
+                    <!-- .close -->
+                    <a href="/" class="page-close"><i class="tf-ion-home" style="font-size: 2em;"></i></a>
+                    <!-- /.close -->
+
+                    <!-- <div class="author-image-large">
+                        <img src="img/author.png" alt="">
+                    </div> -->
+                    
+                    <div class="container">
+                        <div class="row" >
+                            <div class="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8" style="margin-bottom: 25px;">
+                                <div class="page-title text-center">
+                                    <h2><span class="primary">校慶遠端合唱系統​</span> <span class="title-bg">場域一</span></h2>
+                                    <br>
+                                    <h3><span class="text-center" style="color:black">親愛的使用者您好，此場域為遠端合唱系統。<br>有三個唱歌包廂可依個人喜好進入對應包廂，祝您歡唱愉快！</span> </h3>
+                                </div>
+                            </div>
+                            <div class=" col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-4 col-lg-4" style="margin-top: 10px;">
+                                <div class="lyric-block" style="height: 350px;">
+                                    <div class="text-center">
+                                        <form action="/scenario1/menu" method="post" onsubmit="return checkForTheCondition();">
+                                            <br>
+                                            <label for="username">使用者名稱</label>
+                                            <input type="text" id="username" name="username" style="color: black;"><br><br>
+                                            <label for="location">目 前 位 置</label>
+                                            <input type="text" id="location" name="location" style="color: black;"><br><br>
+                                            <input type="submit" class="btn btn-primary btn-custom-border text-uppercase" value="進入包廂">
+                                            <!-- <button type="submit" class="btn btn-primary btn-custom-border text-uppercase">進入包廂</button> -->
+                                        </form>
+                                    </div>
+                                    
+                                </div>
+                            </div> <!-- /.col -->
+                            
+                        </div> <!-- /.row -->
+                    </div> <!-- /.container -->
+                    
+                    <nav class="page-nav clear">
+                        <div class="container">
+                            <div class="flex flex-middle space-between" style="color:black;">
+                                <span class="prev-page" style="font-size: 25px;"><a href="/" class="link">&larr; Prev Page</a></span>
+                                <span class="copyright hidden-xs" style="font-size: 20px;">Copyright &copy; 2021 NYCU wirelab, All Rights Reserved.</span>
+                                <span class="next-page" style="font-size: 25px;"><a href="/scenario2" class="link">Next Page &rarr;</a></span>
+                            </div>
+                        </div>
+                        <!-- /.page-nav -->
+                    </nav>
+                    <!-- /.container -->
+
+                </div> <!-- /.pt-tablecell -->
+            </div> <!-- /.pt-table -->
+        </main> <!-- /.site-wrapper -->
+        
+        <!-- ================================
+        JavaScript Libraries
+        ================================= -->
+        <script src="js/vendor/jquery-2.2.4.min.js"></script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/jquery.easing.min.js"></script>
+        <script src="js/isotope.pkgd.min.js"></script>
+        <script src="js/jquery.nicescroll.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/jquery-validation.min.js"></script>
+        <script src="js/form.min.js"></script>
+        <script src="js/main.js"></script>
+        <script>
+            function checkForTheCondition(){
+                var usr = document.getElementById("username").value;
+                var loc = document.getElementById("location").value;
+                if(usr != "" && loc != ""){
+                    return true;
+                }else{
+                    alert("請輸入使用者名稱及目前位置")
+                    return false;
+                }
+                return false;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+    <head>
+        <!-- meta charset -->
+        <meta charset="utf-8">
+        <!-- meta description -->
+        <meta name="description" content="">
+        <!-- site title-->
+        <title><%= title %></title>
+        <!-- mobile viwport meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- fevicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+        
+        <!-- ================================
+        CSS Files
+        ================================= -->
+        <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i|Open+Sans:400,600,700,800" rel="stylesheet">
+        <link rel="stylesheet" href="css/themefisher-fonts.min.css">
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link id="color-changer" rel="stylesheet" href="css/colors/color-0.css">
+    </head>
+    <style>
+      #right {
+          width: 80%;
+          height: auto;
+          outline: 1px solid;
+          position: absolute;
+          right: 0;
+      }
+    </style>
+    <body style="background-image: url('img/room_bg.png'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
+
+        <div class="preloader">
+            <div class="loading-mask"></div>
+            <div class="loading-mask"></div>
+            <div class="loading-mask"></div>
+            <div class="loading-mask"></div>
+            <div class="loading-mask"></div>
+        </div>
+
+
+        <main class="site-wrapper">
+            <div class="pt-table">
+                <div class="pt-tablecell page-welcome relative">
+                    <!-- .close -->
+                    <a href="/scenario1" class="page-close"><i class="tf-ion-close" style="font-size: 2em;"></i></a>
+                    <!-- /.close -->
+
+                    <!-- <div class="author-image-large">
+                        <img src="img/author.png" alt="">
+                    </div> -->
+                    
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+                                <div class="page-title text-center" style="margin-top: 25px;">
+                                    <h2><span class="primary">歌唱曲目</span> </h2>
+                                    <h3><span class="lyric-block-text2 text-center" style="color:black">請選擇欲演唱的歌曲</span> </h3>
+                                </div>
+                            </div>
+                            <div class="col-lg-offset-3 col-lg-6">
+                              <div class="lyric-block" style="height: 350px;overflow: scroll; ">
+                                  <div class="lyric-block-text text-center">
+                                    <form action="/scenario1/room1" method="post">
+                                        <input type="hidden" id="username" name="username" value='<%-username%>'>
+                                        <input type="hidden" id="location" name="location" value='<%-loc%>'>
+                                        <input type="hidden" id="song" name="song" value="卡加布列島">
+                                        <input type="submit" class="btn btn-primary btn-custom-border text-uppercase" value="卡加布列島">
+                                    </form>
+                                    <br>
+                                  </div>  
+                                  <div class="lyric-block-text text-center">
+                                    <form action="/scenario1/room2" method="post">
+                                        <input type="hidden" id="username" name="username" value='<%-username%>'>
+                                        <input type="hidden" id="location" name="location" value='<%-loc%>'>
+                                        <input type="hidden" id="song" name="song" value="小幸運">
+                                        <input type="submit" class="btn btn-primary btn-custom-border text-uppercase" value="小幸運">
+                                    </form>
+                                    <br>
+                                  </div> 
+                                  <div class="lyric-block-text text-center">
+                                    <form action="/scenario1/room3" method="post">
+                                        <input type="hidden" id="username" name="username" value='<%-username%>'>
+                                        <input type="hidden" id="location" name="location" value='<%-loc%>'>
+                                        <input type="hidden" id="song" name="song" value="知足">
+                                        <input type="submit" class="btn btn-primary btn-custom-border text-uppercase" value="知足">
+                                    </form>
+                                    <br>
+                                  </div> 
+                                </div>  
+                              </div>
+                          </div> <!-- /.col -->
+                            <!-- <div class="col-md-6 col-md-offset-3" style="margin-bottom: 50px;">
+                                <div class="lyric-block" id="lyrics" style="height: 350px; width: 550px;">
+                                    
+                                </div>
+                            </div>  -->
+                            
+                            <div class="col-md-6 col-md-offset-3">
+                                  <div class="text-center">
+                                      <!-- <button onclick="start()" class="btn btn-primary btn-custom-border text-uppercase">開始唱歌</button> -->
+                                      <!-- <button onclick="ready()" class="btn btn-primary btn-custom-border text-uppercase" id="button">準備好了</button> -->
+                                  </div>  
+                            </div> <!-- /.col -->
+                        </div> <!-- /.row -->
+                    </div> <!-- /.container -->
+                    <nav class="page-nav clear">
+                        <div class="container">
+                            <div class="text-center" style="color:black;">
+                                <span class="copyright hidden-xs" style="font-size: 20px;">Copyright &copy; 2021 NYCU wirelab, All Rights Reserved.</span>
+                            </div>
+                        </div>
+                        <!-- /.page-nav -->
+                    </nav>
+                    <!-- /.container -->
+
+                </div> <!-- /.pt-tablecell -->
+            </div> <!-- /.pt-table -->
+        </main> <!-- /.site-wrapper -->
+        
+        <!-- ================================
+        JavaScript Libraries
+        ================================= -->
+        <script src="js/vendor/jquery-2.2.4.min.js"></script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/jquery.easing.min.js"></script>
+        <script src="js/isotope.pkgd.min.js"></script>
+        <script src="js/jquery.nicescroll.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/jquery-validation.min.js"></script>
+        <script src="js/form.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            var username = '<%-username%>';
+            var loc = '<%-loc%>';
+            
+            function enterRoom(song){
+                const socket = io({
+                    auth: {
+                        room: song,
+                        user: username,
+                        loc: loc
+                    }
+                });
+                socket.emit("enter",song);
+            };
+        </script>
+    </body>
+</html>

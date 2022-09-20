@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+    <head>
+        <!-- meta charset -->
+        <meta charset="utf-8">
+        <!-- meta description -->
+        <meta name="description" content="">
+        <!-- site title-->
+        <title><%= title %></title>
+        <!-- mobile viwport meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- fevicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+        <!-- variable -->
+        <script>
+          const ROOM_ID = "<%= title %>"
+          const USER = "<%= username %>"
+          const LOC = "<%= loc %>"
+          var room = '<%-room%>';
+          var lyrics_text = '<%-lyrics%>';
+          var beat = '<%-beats%>';
+        </script>
+        <!-- ================================
+        CSS Files
+        ================================= -->
+        <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i|Open+Sans:400,600,700,800" rel="stylesheet">
+        <link rel="stylesheet" href="css/themefisher-fonts.min.css">
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link id="color-changer" rel="stylesheet" href="css/colors/color-0.css">
+    </head>
+    <style> 
+      #video-grid1 #video-grid2 {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, 300px);
+          grid-auto-rows: 300px;
+        justify-content: center;
+          align-items: center;
+      }
+
+      video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+      }
+      .ani::before {
+            content: "";
+            font-size: 100px;
+            animation: animate 5s;
+            /* padding-left: 10px; */
+      }
+  
+      @keyframes animate {
+          25% {
+              content: "3";
+          }
+          50% {
+              content: "2";
+          }
+          75% {
+              content: "1";
+          }
+          100% {
+              content: "0";
+          }
+      }
+      .lds-dual-ring {
+        display: inline-block;
+        width: 300px;
+        height: 80px; 
+        margin-left: 100px;
+      }
+      .lds-dual-ring:after {
+        content: " ";
+        display: block;
+        width: 64px;
+        height: 64px;
+        margin-top: 50px; 
+        margin-left: 115px;
+        /* margin: 50px; */
+        border-radius: 50%;
+        border: 6px solid #fff;
+        border-color: #fff transparent #fff transparent;
+        animation: lds-dual-ring 2s linear infinite;
+      }
+      @keyframes lds-dual-ring {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+    <body style="background-image: url('img/room_bg.png'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
+
+        <div class="preloader">
+            <div class="loading-mask"></div>
+            <div class="loading-mask"></div>
+            <div class="loading-mask"></div>
+            <div class="loading-mask"></div>
+            <div class="loading-mask"></div>
+        </div>
+        <main class="site-wrapper">
+            <div class="pt-table">
+                <div class="pt-tablecell page-welcome relative">
+                    <!-- .close -->
+                    <a href="/scenario1" class="page-close" onclick="leave();"><i class="tf-ion-close" style="font-size: 2em;"></i></a>
+                    <!-- /.close -->
+                    
+                    <div class="container" style="padding-left: 0px; padding-right: 0px;"> 
+                        <div class="col-md-2">
+                          <div class="row" >
+                            <center><div id="video-grid2" style="height: 300px; width: 250px; border: 1px solid #fff;"></div></center>
+                          </div>
+                          <center><div id="OthersUserName" style="font-family: 'Libre Baskerville'; font-size: 30px; color: #FA6862; margin-top: 15px; width: 250px;"></div></center>
+                          <center><div id="OthersLocation" style="font-family: 'Libre Baskerville'; font-size: 30px; color: #FA6862; margin-top: 5px;  width: 250px;"></div></center>
+                        </div>
+                        <div class="col-md-6 col-md-offset-1">
+                          <div class="row">              
+                            <div class="page-title text-center">
+                              <h2><span class="primary"><%= song %>​</span> </h2>
+                            </div>
+                            <div class="lyric-block-text2 text-center" id="start_timestamp" style="font-size: 25px; color:black; margin-bottom: 5px;">ping: </div>
+                            <div class="lyric-block" id="lyrics" style="height: 350px; max-width: 550px;">
+                                <div class="text-center" id="welcomeMsg">
+                                  <p style="font-size: 25px; margin-top: 50px; margin-bottom: 50px; color:black">歡迎進入<%= room %>號包廂<br><br>即將進行合唱的歌曲是<br> <%= song %>。<br><br>準備好就可以按下方按鍵，祝您歡唱愉快！</p>
+                                </div>
+                                <div class="text-center" id="waiting" style="font-size: 35px; margin-top: 100px; margin-bottom: 50px; color:black"></div>
+                                <div class="text-center" id="countdown" style="margin-top: 150px;"></div>
+                            </div>
+                            <div class="text-center">
+                                <br>
+                                <button onclick="ready()" class="btn btn-primary btn-custom-border text-uppercase" id="button">準備好了</button>
+                            </div> 
+                            
+                          </div> <!-- /.row -->
+                        </div>
+                        <div class="col-md-2 col-md-offset-1">
+                          <div class="row">
+                            <center><div id="video-grid1" style="height: 300px; width: 250px;"></div></center>  
+                          </div>
+                          <center><div id="MyUserName" style="font-family: 'Libre Baskerville'; font-size: 30px; color: #FA6862; margin-top: 15px; width: 250px;">我的名字:<%= username %></div></center>
+                          <center><div id="MyLocation" style="font-family: 'Libre Baskerville'; font-size: 30px; color: #FA6862; margin-top: 5px;  width: 250px;">我的位置:<%= loc %></div></center>
+                        </div>      
+                        
+                    </div> <!-- /.container -->
+                    <nav class="page-nav clear">
+                        <div class="container">
+                            <div class="text-center" style="color:black;">
+                                <span class="copyright hidden-xs" style="font-size: 20px;">Copyright &copy; 2021 NYCU wirelab, All Rights Reserved.</span>
+                            </div>
+                        </div>
+                        <!-- /.page-nav -->
+                    </nav>
+                    <!-- /.container -->
+
+                </div> <!-- /.pt-tablecell -->
+            </div> <!-- /.pt-table -->
+        </main> <!-- /.site-wrapper -->
+        
+        <!-- ================================
+        JavaScript Libraries
+        ================================= -->
+        
+
+        <script src="js/vendor/jquery-2.2.4.min.js"></script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/jquery.easing.min.js"></script>
+        <script src="js/isotope.pkgd.min.js"></script>
+        <script src="js/jquery.nicescroll.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/jquery-validation.min.js"></script>
+        <script src="js/form.min.js"></script>
+        <script src="js/main.js"></script>
+        
+        <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        
+        <script src = "script.js"></script>
+        <script src = "command.js"></script>
+        
+        
+    </body>
+</html>
